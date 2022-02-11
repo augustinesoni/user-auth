@@ -2,19 +2,20 @@ package com.example.userauth.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
-public class PermissionsEntity {
+@Table(name="permissions")
+public class PermissionsEntity implements Serializable {
 
     @Id
-    int permissionId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="permission_id",nullable = false)
+    private Integer permissionId;
 
-    int menuItemId;
-    char menuItemView;
-    char menuItemEdit;
-    char menuItemDelete;
+    @Column(name="permission_action",nullable = false)
+    private String permissionAction;
 
 }

@@ -2,18 +2,24 @@ package com.example.userauth.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
-public class RolePermissionsEntity {
+@Table(name="role_permissions")
+public class RolePermissionsEntity implements Serializable {
 
     @Id
-    int rolePermissionsId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "role_permission_id",nullable = false)
+    private Integer rolePermissionId;
 
-    int roleId;
-    int permissionId;
+    @Column(name="role_id",nullable = false)
+    private int roleId;
+
+    @Column(name="permission_id",nullable = false)
+    private int permissionId;
 
 
 }

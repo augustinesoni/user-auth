@@ -28,8 +28,8 @@ public class UserAuthServiceImpl implements UserAuthService {
     }
 
     private boolean checkIfExists(String username, String password) {
-        if (userRepository.findByUsernamePassword(username,password).equals(null))
-            return false;
+        //if (userRepository.findByUsernamePassword(username,password).equals(null))
+          //  return false;
 
         return true;
     }

@@ -1,20 +1,31 @@
 package com.example.userauth.entity;
 
 import lombok.Data;
+import lombok.Generated;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
-public class UserEntity {
+@Table(name="users")
+public class UserEntity implements Serializable {
 
     @Id
-    private int userId ;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="user_id",nullable = false)
+    private Integer userId ;
 
+    @Column(name="user_name",nullable = false)
     private String username;
+
+    @Column(name="password",nullable = false)
     private String password;
-    private char   userActive;
-    private LocalDateTime datetime;
+
+    @Column(name="user_active",nullable = false)
+    private String   userActive;
+
+    @Column(name="created_at",nullable = false)
+    private LocalDateTime createdAt;
 }
