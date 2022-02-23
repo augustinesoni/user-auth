@@ -8,7 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity,Integer> {
 
-    //@Query("select userId from user where lower(username)=lower(?1) and lower(password) = lower(?2)")
-    //UserEntity findByUsernamePassword(String username, String password);
 
 }
