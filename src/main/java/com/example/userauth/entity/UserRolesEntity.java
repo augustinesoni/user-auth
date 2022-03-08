@@ -20,4 +20,6 @@ public class UserRolesEntity {
     @JoinColumn(name = "role_id", referencedColumnName = "role_id", updatable = false, insertable = false)
     RoleEntity roleEntity;
 
+
+
 }

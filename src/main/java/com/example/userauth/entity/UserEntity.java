@@ -6,6 +6,8 @@ import lombok.Generated;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -28,4 +30,12 @@ public class UserEntity implements Serializable {
 
     @Column(name="created_at",nullable = false)
     private LocalDateTime createdAt;
+
+    @ManyToMany
+    @JoinTable (
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<RoleEntity> roles = new HashSet<>();
 }
